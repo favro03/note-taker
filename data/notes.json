@@ -1,14 +1,19 @@
 {
-    "notes":[
-        {
-            "id": "1",
-            "title":"Test",
-            "text":"Test text"
-        },
-        {
-            "id": "2",
-            "title":"Learn to Code",
-            "text":"Text to learn code"
-        }
-    ]
+  "notes": [
+    {
+      "id": "0",
+      "title": "Test",
+      "text": "Test text"
+    },
+    {
+      "id": "1",
+      "title": "Learn to Code",
+      "text": "Text to learn code"
+    },
+    {
+      "title": "Learn Express.js",
+      "text": "This is a test to show that I can input information",
+      "id": "2"
+    }
+  ]
 }
