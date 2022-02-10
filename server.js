@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //route that the front end can request data from
-const { notes } = require('./data/notes');
+const { notes } = require('./data/db');
 
 //Filter data
 function filterByQuery(query, notesArray) {
@@ -32,7 +32,7 @@ function createNewNote(body, notesArray) {
   const note = body;
   notesArray.push(note);
   fs.writeFileSync(
-    path.join(__dirname, './data/notes.json'),
+    path.join(__dirname, './data/db.json'),
     JSON.stringify({ notes: notesArray }, null, 2)
   );
   return note;
