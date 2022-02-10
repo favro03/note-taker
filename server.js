@@ -78,7 +78,9 @@ app.post('/api/notes', (req, res) => {
     res.json(note);
   }
 });
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
