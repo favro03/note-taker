@@ -4,6 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3002;
 const app = express();
 
+
 //middleware so the app can accept data
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -80,6 +81,7 @@ app.post('/api/notes', (req, res) => {
     res.json(note);
   }
 });
+//routes to the html files
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
@@ -89,4 +91,4 @@ app.get('/notes', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
-  });
+});
