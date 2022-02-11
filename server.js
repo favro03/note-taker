@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const PORT = process.env.PORT || 3002;
 const app = express();
+// imported 'uuid' npm package for unique id
+const { v4: uuidv4 } = require('uuid');
 
 
 //middleware so the app can accept data
@@ -16,6 +18,7 @@ app.use(express.static('public'));
 //route that the front end can request data from
 const { notes } = require('./data/db');
 
+
 //Filter data
 function filterByQuery(query, notesArray) {
     let filteredResults = notesArray;
@@ -27,6 +30,21 @@ function filterByQuery(query, notesArray) {
 function findById(id, notesArray) {
   const result = notesArray.filter(note => note.id === id)[0];
   return result;
+}
+function deleteNote(id, notesArray) {
+  for (let i = 0; i < notesArray.length; i++) {
+      let note = notesArray[i];
+
+      if (note.id == id) {
+          notesArray.splice(i, 1);
+          fs.writeFileSync(
+              path.join(__dirname, './data/db.json'),
+              JSON.stringify(notesArray, null, 2)
+          );
+
+          break;
+      }
+  }
 }
 
 function createNewNote(body, notesArray) {
@@ -70,7 +88,7 @@ app.get('/api/notes/:id', (req, res) => {
 });
 app.post('/api/notes', (req, res) => {
   //set id based on what the next index of the array will be
-  req.body.id = notes.length.toString();
+  req.body.id = uuidv4();
 
   //if any data in req.body is incorrect, send 400 error
   if(!validateNote(req.body)){
@@ -80,6 +98,11 @@ app.post('/api/notes', (req, res) => {
     const note = createNewNote(req.body, notes);
     res.json(note);
   }
+});
+//delete notes
+app.delete('/api/notes/:id', (req, res) => {
+  deleteNote(req.params.id, notes);
+  res.json(true);
 });
 //routes to the html files
 app.get('/', (req, res) => {
