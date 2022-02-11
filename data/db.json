@@ -1,27 +1,29 @@
-[
-  {
-    "id": "0",
-    "title": "Test",
-    "text": "Test text"
-  },
-  {
-    "id": "1",
-    "title": "Learn to Code",
-    "text": "Text to learn code"
-  },
-  {
-    "title": "Learn Express.js",
-    "text": "This is a test to show that I can input information",
-    "id": "2"
-  },
-  {
-    "title": "sadfasdf",
-    "text": "asdfasdf",
-    "id": "3"
-  },
-  {
-    "title": "Test 2",
-    "text": "test2\n",
-    "id": "4"
-  }
-]
+{
+  "notes": [
+    {
+      "id": "0",
+      "title": "Test",
+      "text": "Test text"
+    },
+    {
+      "id": "1",
+      "title": "Learn to Code",
+      "text": "Text to learn code"
+    },
+    {
+      "title": "Learn Express.js",
+      "text": "This is a test to show that I can input information",
+      "id": "2"
+    },
+    {
+      "title": "sadfasdf",
+      "text": "asdfasdf",
+      "id": "3"
+    },
+    {
+      "title": "Test 2",
+      "text": "test2\n",
+      "id": "4"
+    }
+  ]
+}
