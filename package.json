@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/favro03/note-taker#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "jest": "^27.5.0"
-  }
+    "jest": "^27.5.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {}
 }

@@ -1,10 +1,8 @@
 const express = require('express');
-const app = express();
-
 const fs = require("fs");
 const path = require("path");
-const PORT = process.env.PORT || 3001;
-
+const PORT = process.env.PORT || 3002;
+const app = express();
 // imported 'uuid' npm package for unique id
 const { v4: uuidv4 } = require('uuid');
 
@@ -41,7 +39,7 @@ function deleteNote(id, notesArray) {
           notesArray.splice(i, 1);
           fs.writeFileSync(
               path.join(__dirname, './data/db.json'),
-              JSON.stringify({notes: notesArray}, null, 2)
+              JSON.stringify(notesArray, null, 2)
           );
 
           break;
