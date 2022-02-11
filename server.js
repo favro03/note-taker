@@ -1,8 +1,10 @@
 const express = require('express');
+const app = express();
+
 const fs = require("fs");
 const path = require("path");
-const PORT = process.env.PORT || 3002;
-const app = express();
+const PORT = process.env.PORT || 3001;
+
 // imported 'uuid' npm package for unique id
 const { v4: uuidv4 } = require('uuid');
 
